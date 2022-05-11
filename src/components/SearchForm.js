@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchForm() {
     return(
-        console.log('this is a Search Form')
+        <p>this is a Search Form</p>
     )
 }
 
