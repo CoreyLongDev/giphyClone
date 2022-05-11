@@ -84,3 +84,7 @@ the button and input when the browser is at least
     margin-left: 1rem;
   }
 }
+img {
+  margin-bottom: 1rem;
+  width: 100%;
+}
