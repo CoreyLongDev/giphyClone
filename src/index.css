@@ -78,13 +78,29 @@ input:hover {
 /* Add a media query to add more space between
 the button and input when the browser is at least
 600px wide */
+img {
+  margin-bottom: 1rem;
+  width: 100%;
+}
 @media (min-width: 600px) {
   button + button,
   input + button {
     margin-left: 1rem;
   }
+
+  .gallery {
+    column-count: 2;
+  }
 }
-img {
-  margin-bottom: 1rem;
-  width: 100%;
+
+@media (min-width: 1000px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1400px) {
+  .gallery {
+    column-count: 4;
+  }
 }
