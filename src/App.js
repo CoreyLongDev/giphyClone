@@ -18,6 +18,8 @@ function App() {
     getImages()
   }, [])
 
+  const [searchString, setSearchString] = useState('minions')
+  
   function handleChange(event) {
     setSearchString(event.target.value)
   }
@@ -26,8 +28,6 @@ function App() {
     getImages()
   }
   function getImages() {
-  
-    const [searchString, setSearchString] = useState('minions')
 
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&land=en`
   
