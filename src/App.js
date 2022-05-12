@@ -35,8 +35,8 @@ function App() {
     getImages(searchString)
   }
 
-  function getImages() {
-
+  function getImages(searchString) {
+    console.log(searchString)
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&land=en`
   
     fetch(url)
