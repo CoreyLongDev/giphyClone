@@ -18,8 +18,17 @@ function App() {
     getImages()
   }, [])
 
+  function handleChange(event) {
+    setSearchString(event.target.value)
+  }
+  function handleSubmit(event) {
+    event.preventDefault()
+    getImages()
+  }
   function getImages() {
-    const searchString = 'minions'
+  
+    const [searchString, setSearchString] = useState('minions')
+
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&land=en`
   
     fetch(url)
@@ -32,7 +41,11 @@ function App() {
   return(
     <div>
       <h1>Giphy Searcher</h1>
-      <SearchForm />
+      <SearchForm 
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        searchString={searchString}
+      />
       <SearchResults images={images} />
     </div>
   )
