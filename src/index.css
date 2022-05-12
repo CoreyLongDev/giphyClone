@@ -11,8 +11,20 @@
   --secondary: #ff7f50;
   --secondary-light: #ffa483;
   --white: #fff;
+  --muted: #a1a1a1;
 }
-
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0
+}
+h1, p {
+  margin: 0;
+}
+.muted {
+  color: var(--muted)
+}
 /* Remove the body margin */
 body {
   font-family: sans-serif;
@@ -96,6 +108,10 @@ img {
 @media (min-width: 1000px) {
   .gallery {
     column-count: 3;
+  }
+  header {
+    align-items: center;
+    flex-direction: row;
   }
 }
 

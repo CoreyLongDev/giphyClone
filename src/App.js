@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchForm from "./components/SearchForm";
 import SearchResults from "./components/SearchResults";
+import SearchHeader from "./components/SearchHeader";
 
 
 function App() {
@@ -18,15 +19,22 @@ function App() {
     getImages()
   }, [])
 
-  const [searchString, setSearchString] = useState('minions')
-  
+  const [searchString, setSearchString] = useState('')
+
+  const [lastSearchString, setLastSearchString] = useState('')
+
+  useEffect(() => {
+    getImages(searchString)
+  }, [])
+
   function handleChange(event) {
     setSearchString(event.target.value)
   }
   function handleSubmit(event) {
     event.preventDefault()
-    getImages()
+    getImages(searchString)
   }
+
   function getImages() {
 
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&land=en`
@@ -35,12 +43,14 @@ function App() {
     .then(res => res.json())
     .then(res => {
       setImages(res.data)
+      setLastSearchString(searchString)
+      setSearchString('')
     })
     .catch(console.error)
   }
   return(
     <div>
-      <h1>Giphy Searcher</h1>
+      <SearchHeader lastSearchString={lastSearchString}/>
       <SearchForm 
         handleChange={handleChange}
         handleSubmit={handleSubmit}
