@@ -17,7 +17,18 @@ function App() {
   useEffect(() => {
     getImages()
   }, [])
+
+  function getImages() {
+    const searchString = 'minions'
+    const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&q=${searchString}&limit=${searchOptions.limit}&offset=${searchOptions.offset}&rating=${searchOptions.rating}&land=en`
   
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+      setImages(res.data)
+    })
+    .catch(console.error)
+  }
   return(
     <div>
       <h1>Giphy Searcher</h1>
