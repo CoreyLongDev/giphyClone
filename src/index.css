@@ -86,7 +86,24 @@ input:hover {
   align-items: center;
   display: flex;
 }
+.brand {
+  align-items: center;
+  display: flex;
+  width: auto;
+}
 
+.brand img {
+  height: 2rem;
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+
+.brand h1 {
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin-right: 1rem;
+  white-space: nowrap;
+}
 /* Add a media query to add more space between
 the button and input when the browser is at least
 600px wide */
