@@ -10,7 +10,7 @@ function SearchResults({ images }) {
     <div className="gallery">
       {images.map((image) => (
         <div key={image.id} className="gif">
-          <img src={image.images.downsized_large.url} alt=''/>
+          <img src={image.images.downsized_large.url} alt="" />
         </div>
       ))}
     </div>
